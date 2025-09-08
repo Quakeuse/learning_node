@@ -42,4 +42,19 @@ Resource
 
 Sharing
 
-Neceessary when front and back are not sharing the same origin
+Neceessary when front and back are not sharing the same origin. Exemple : backend is running on port 3000 and frontend is running on prot 4020
+
+### Adding headers in the app.js to open the authorizations
+
+To access our API from any origine ( '*' )
+
+*res.setHeader('Access-Control-Allow-Origin', '*');*
+
+To add the mentioned headers to the requests sent to the API
+
+*res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');*
+
+To send requests with the mentioned methods ( GET ,POST , etc.).
+
+*res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');*
+
