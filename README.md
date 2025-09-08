@@ -58,3 +58,8 @@ To send requests with the mentioned methods ( GET ,POST , etc.).
 
 *res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');*
 
+### The CRUD methods
+
+Depending on the action of the middleware, app.use() can be precised with app.get() or app.post()
+
+Warning: always put the POST before the GET in the app.js, otherwise GET will intercept also the POST actions
