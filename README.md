@@ -8,6 +8,7 @@ The command **npm run start** let to start the Node server. The associated websi
 
 To init a new backend project, run **npm init** in a terminal. There will be several parameters to set up, most of them can remain as they are proposed. Potentially change the "index.js" with "server.js".
 
+To start the Node server, run **node server**
 
 ## What is Node?
 
