@@ -28,3 +28,7 @@ To install Express : **npm install express --save** (--save is to save the confi
 *"dependencies": {
     "express": "^5.1.0"
   }*
+
+### What is a Middleware?
+
+Middleware in Node.js refers to a concept where functions can be used to process incoming requests before they reach their final destination and handle outgoing responses before they are sent back to the client
