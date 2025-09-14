@@ -23,11 +23,13 @@ The runtime Node let to execute javascript code on a backend server.
 
 Express is the most popular Node.js web framework. See the documentation https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Introduction
 
-To install Express : **npm install express --save** (--save is to save the configuration in the package.json)
+To install Express: **npm install express --save** (--save is to save the configuration in the package.json)
 
 *"dependencies": {
     "express": "^5.1.0"
   }*
+
+To launch Express: **npm run start** 
 
 ### What is a Middleware?
 
