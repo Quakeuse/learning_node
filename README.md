@@ -65,3 +65,44 @@ To send requests with the mentioned methods ( GET ,POST , etc.).
 Depending on the action of the middleware, app.use() can be precised with app.get() or app.post()
 
 Warning: always put the POST before the GET in the app.js, otherwise GET will intercept also the POST actions
+
+# BUGS encountered and solutions (specially with multer)
+
++ When there are discrepancies between the methods into the controllers and the names in the routes
+
+```
+/Users/helene/Documents/Formations informatique/Node/go-fullstack/backend/node_modules/router/lib/route.js:228
+        throw new TypeError('argument handler must be a function')
+```
+
+because in controllers/stuff.js, we have:
+
+exports.**getAllStuff** = (req, res, next) => {
+
+and in routes/stuff.js, the method is named differently.
+
+router.get('/', stuffCtrl.**getAllThings**);
+
+All must be coordinate.
+
++ code: 'ERR_HTTP_HEADERS_SENT' --> when several *res.status(XX).json(XX)* can be reached in the code
+
+Example :
+
+```
+if(thing.userId != req.auth.userId) {
+    res.status(401).json({ message : 'Non autorisé' });
+} else {
+    const filename = thing.imageUrl.split('/images/')[1];
+    fs.unlink(`images/${filename}`, () => {
+        Thing.deleteOne({ _id: req.params.id })
+            .then(() => {
+                res.status(200).json({ message: 'Objet supprimé !'})
+            })
+            .catch(error => {
+                res.status(401).json({ error })
+        });
+    });
+}
+res.status(200).json(thing)
+```
